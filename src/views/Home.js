@@ -2,16 +2,23 @@ import ContentCard from "../components/ContentCard"
 import {Container, Row, Col} from 'react-bootstrap'
 
 function Home(){
-    return(
-        <Container>
-            <Row className="justify-content-md-center mt-1">
+    function RenderContentCard(){
+        //Read all card information from Firebase
+
+        //Return the list of card
+        return(
+        <Row className="justify-content-md-center mt-1">
                 <Col md={8}>
-                    <div className="justify-content-md-center">
+                    <div>
                         <ContentCard></ContentCard>
                     </div>
                 </Col>
-                
-            </Row>
+        </Row>)
+    }
+
+    return(
+        <Container>
+            {RenderContentCard()}
         </Container>
         
     )

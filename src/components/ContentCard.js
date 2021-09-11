@@ -21,7 +21,7 @@ function ContentCard(){
                 <Card.Img variant="top" src={imageSrc}></Card.Img>
             </Card.Body>
             <Card.Body>
-                <Card.Title className="text-center">
+                <Card.Title>
                     {titleText}
                 </Card.Title>
                 <Card.Text>
@@ -32,8 +32,6 @@ function ContentCard(){
                 <Link to={redirectLink}>
                     <Button variant="primary">Read more</Button>
                 </Link>
-
-                
             </Card.Body>
         </Card>
     )
