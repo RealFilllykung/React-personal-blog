@@ -1,6 +1,8 @@
+import { Button } from 'react-bootstrap'
+
 function Login(){
     return(
-        <div>Login page</div>
+        <Button>Admin login with Google account</Button>
     )
 }
 
