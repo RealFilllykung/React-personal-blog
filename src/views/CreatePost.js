@@ -1,7 +1,7 @@
 import { Title, ImageLink, Content, SubmitPost } from '../components/CreatePostForm'
 
 import { useState } from "react"
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 function CreatePost(){
 
