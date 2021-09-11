@@ -14,16 +14,17 @@ function App() {
     <Router>
       <div className="App">
         <AppBar/>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route exact path="/login">
+              <Login/>
+            </Route>
+          </Switch>
+        </div>
       </div> 
-
-      <Switch>
-        <Route path="/">
-          <Home/>
-        </Route>
-        <Route path="/login">
-          <Login/>
-        </Route>
-      </Switch>
     </Router>
   );
 }
