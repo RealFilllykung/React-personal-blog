@@ -29,7 +29,9 @@ function ContentCard(){
                 </Card.Text>
             </Card.Body>
             <Card.Body>
-                <Link to={redirectLink}>
+                <Link to={{
+                    pathname: '/content'
+                }}>
                     <Button variant="primary">Read more</Button>
                 </Link>
             </Card.Body>

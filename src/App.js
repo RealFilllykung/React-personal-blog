@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './views/Home';
 import Login from './views/Login';
+import Content from './views/Content';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <Login/>
+            </Route>
+            <Route path="/content">
+              <Content></Content>
             </Route>
           </Switch>
         </div>
