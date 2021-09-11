@@ -9,15 +9,34 @@ import {
 import Home from './views/Home';
 import Login from './views/Login';
 import Content from './views/Content';
-import { useState } from 'react';
+
+import firebase from './Firebase/Firebase'
+import UID from './Firebase/uid.json'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from 'react';
 
 function App() {
   const [selectedTitle,setSelectedTitle] = useState('')
+  const [isLogin, setIsLogin] = useState(false)
+
+  //Check if the user is login or not
+  useEffect(() => {
+    const auth = getAuth(firebase)
+    onAuthStateChanged(auth, user => {
+      try{
+        if (UID.uid === user.uid) setIsLogin(true)
+      }
+      catch(error){
+        console.log(error)
+      }
+      
+    })
+  },[])
 
   return (
     <Router>
       <div className="App">
-        <AppBar/>
+        <AppBar isLogin={isLogin}/>
         <div>
           <Switch>
             <Route exact path="/">

@@ -3,10 +3,12 @@ import { Button, Card, Container, Row, Col } from 'react-bootstrap'
 import firebase from '../Firebase/Firebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { Email, Password } from '../components/LoginForm'
+import { useHistory } from 'react-router'
 
 function Login(){
 
     const auth = getAuth(firebase)
+    let history = useHistory()
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -19,6 +21,7 @@ function Login(){
         signInWithEmailAndPassword(auth, username, password)
         .then(() => {
             console.log("Login successfully")
+            history.push('/')
         })
         .catch(() => {
             console.log("Login failed")

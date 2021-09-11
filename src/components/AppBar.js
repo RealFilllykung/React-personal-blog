@@ -1,8 +1,11 @@
 import { Navbar, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import LoginButton from './AppBarComponent/AdminButton'
+import AdminButton from './AppBarComponent/AdminButton'
 
-function AppBar(){
+function AppBar(props){
+
+  const isLogin = props.isLogin
+
     return(
         <Navbar bg="dark" variant="dark">
         <Container>
@@ -12,7 +15,7 @@ function AppBar(){
                 </Navbar.Brand>
             </Link>
           <Navbar.Collapse className="justify-content-end">
-            <LoginButton></LoginButton>
+            <AdminButton isLogin={isLogin}></AdminButton>
           </Navbar.Collapse>
         </Container>
       </Navbar>
