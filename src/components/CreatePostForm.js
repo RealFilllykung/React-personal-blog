@@ -1,4 +1,5 @@
 import { Row, Col, Form, Button } from 'react-bootstrap'
+import axios from 'axios'
 
 export function Title(props){
     const getter = props.title
@@ -55,7 +56,13 @@ export function SubmitPost(props){
 
     function handleClick(){
         //Send all the information to the Firebase database
-        
+        axios.post('http://localhost:4000/createpost')
+            .then(response => {
+                
+            })
+            .catch(error => {
+
+            })
         //Redirect to the homepage
     }
 
