@@ -1,6 +1,7 @@
 import { Navbar, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AdminButton from './AppBarComponent/AdminButton'
+import CreatePostButton from './AppBarComponent/CreatePostButton'
 
 function AppBar(props){
 
@@ -15,6 +16,7 @@ function AppBar(props){
                 </Navbar.Brand>
             </Link>
           <Navbar.Collapse className="justify-content-end">
+            <CreatePostButton isLogin={isLogin}></CreatePostButton>
             <AdminButton isLogin={isLogin}></AdminButton>
           </Navbar.Collapse>
         </Container>

@@ -14,6 +14,7 @@ import firebase from './Firebase/Firebase'
 import UID from './Firebase/uid.json'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from 'react';
+import CreatePost from './views/CreatePost';
 
 function App() {
   const [selectedTitle,setSelectedTitle] = useState('')
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route exact path="/content">
               <Content title={selectedTitle}/>
+            </Route>
+            <Route exact path="/createpost">
+              <CreatePost/>
             </Route>
           </Switch>
         </div>
