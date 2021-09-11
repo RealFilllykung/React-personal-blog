@@ -1,5 +1,5 @@
 import { Navbar, Container } from 'react-bootstrap'
-import LoginButton from './AppBarComponent/LoginButton'
+import LoginButton from './AppBarComponent/AdminButton'
 
 function AppBar(){
     return(
