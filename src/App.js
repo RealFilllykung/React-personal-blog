@@ -6,23 +6,22 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Home from './views/Home';
+import Login from './views/Login';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <AppBar/>
-        <header className="App-header">
-          
-        </header>
       </div> 
 
       <Switch>
         <Route path="/">
-          {/* Redirect to home */}
+          <Home/>
         </Route>
         <Route path="/login">
-          {/* Redirect to login page */}
+          <Login/>
         </Route>
       </Switch>
     </Router>
