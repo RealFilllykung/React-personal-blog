@@ -56,13 +56,17 @@ export function SubmitPost(props){
 
     function handleClick(){
         //Send all the information to the Firebase database
-        axios.post('http://localhost:4000/createpost')
+        axios({
+            method: 'post',
+            url: 'http://localhost:4000/createpost'
+        })
             .then(response => {
-                
-            })
-            .catch(error => {
 
             })
+            .catch(error => {
+                
+            })
+        
         //Redirect to the homepage
     }
 
