@@ -1,7 +1,9 @@
 import ContentCard from "../components/ContentCard"
 import {Container, Row, Col} from 'react-bootstrap'
 
-function Home(){
+function Home(props){
+    const setSelectedTitle = props.setTitle
+
     function RenderContentCard(){
         //Read all card information from Firebase
 
@@ -10,7 +12,7 @@ function Home(){
         <Row className="justify-content-md-center mt-1">
                 <Col md={8}>
                     <div>
-                        <ContentCard></ContentCard>
+                        <ContentCard setTitle={setSelectedTitle}></ContentCard>
                     </div>
                 </Col>
         </Row>)
@@ -20,7 +22,6 @@ function Home(){
         <Container>
             {RenderContentCard()}
         </Container>
-        
     )
 }
 

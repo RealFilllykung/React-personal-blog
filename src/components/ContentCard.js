@@ -2,18 +2,22 @@ import { useEffect, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-function ContentCard(){
+function ContentCard(props){
     const [imageSrc, setImageSrc] = useState('')
     const [titleText, setTitleText] = useState('')
     const [contentText, setContentText] = useState('')
-    const [redirectLink, setRedirectLink] = useState('')
+
+    const setSelectedTitle = props.setTitle
 
     useEffect(() => {
         setImageSrc('https://picsum.photos/300/200')
         setTitleText('Test Title')
         setContentText('Content Text')
-        setRedirectLink('/')
     },[])
+
+    function handleLinkClick(){
+        setSelectedTitle(titleText)
+    }
 
     return(
         <Card>
@@ -29,7 +33,9 @@ function ContentCard(){
                 </Card.Text>
             </Card.Body>
             <Card.Body>
-                <Link to={{
+                <Link 
+                    onClick={() => handleLinkClick()}
+                to={{
                     pathname: '/content'
                 }}>
                     <Button variant="primary">Read more</Button>

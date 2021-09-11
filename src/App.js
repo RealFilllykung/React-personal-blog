@@ -9,8 +9,11 @@ import {
 import Home from './views/Home';
 import Login from './views/Login';
 import Content from './views/Content';
+import { useState } from 'react';
 
 function App() {
+  const [selectedTitle,setSelectedTitle] = useState('')
+
   return (
     <Router>
       <div className="App">
@@ -18,13 +21,13 @@ function App() {
         <div>
           <Switch>
             <Route exact path="/">
-              <Home/>
+              <Home setTitle={setSelectedTitle}/>
             </Route>
             <Route exact path="/login">
               <Login/>
             </Route>
-            <Route path="/content">
-              <Content></Content>
+            <Route exact path="/content">
+              <Content title={selectedTitle}/>
             </Route>
           </Switch>
         </div>

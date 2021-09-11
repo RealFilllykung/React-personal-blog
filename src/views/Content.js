@@ -1,9 +1,10 @@
+function Content(props){
+    const selectTitle = props.title
 
-
-function Content(){
+    //Query the content from Firebase database
 
     return (
-        <div>Content page</div>
+        <div>{selectTitle}</div>
     )    
 }
 
