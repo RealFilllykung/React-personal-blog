@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react'
 import { Button, Card, Container, Row, Col } from 'react-bootstrap'
 import firebase from '../Firebase/Firebase'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { Email, Password } from '../components/LoginForm'
 
 function Login(){
+
+    const auth = getAuth(firebase)
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     useEffect(() => {
-        console.log(firebase.name)
+        
     },[])
 
     function handleLogin(){
-        console.log(username + " " + password)
+        signInWithEmailAndPassword(auth, username, password)
+        .then(() => {
+            console.log("Login successfully")
+        })
+        .catch(() => {
+            console.log("Login failed")
+        })
     }
 
     return(
