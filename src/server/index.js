@@ -37,13 +37,12 @@ app.post('/createpost', (req,res) =>{
 
 app.post('/verifyToken', (req,res) => {
   const token = req.body.token
-  var isAdmin = false
 
   //Verify UID of the client
   admin.auth().verifyIdToken(token)
     .then(decodedToken => {
       const uid = decodedToken.uid
-      //if (uid === uidAdmin.uid) 
+      if (uid === uidAdmin.uid) 
       res.status(200).send({isAdmin: true})
       return
     })
