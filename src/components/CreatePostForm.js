@@ -1,5 +1,7 @@
 import { Row, Col, Form, Button } from 'react-bootstrap'
 import axios from 'axios'
+import getToken from '../functions/getToken'
+import { useEffect, useState } from 'react'
 
 export function Title(props){
     const getter = props.title
@@ -53,6 +55,14 @@ export function SubmitPost(props){
     const imageSrc = props.imageSrc
     const title = props.title
     const content = props.content
+    const setWarningMessage = props.setWarningMessage
+
+    const [token, setToken] = useState('')
+
+    useEffect(() => {
+        //Set the token
+        getToken(setToken)
+    },[])
 
     function handleClick(){
         //Send all the information to the Firebase database
@@ -62,11 +72,12 @@ export function SubmitPost(props){
             data: {
                 content: content,
                 imageSrc: imageSrc,
-                title: title
+                title: title,
+                token: token
             }
         })
             .then(response => {
-                
+                setWarningMessage(response.data.message)
             })
             .catch(error => {
                 
@@ -78,5 +89,18 @@ export function SubmitPost(props){
 
     return(
         <Button variant="primary" onClick={() => handleClick()}>Create post</Button>
+    )
+}
+
+export function WarningMessage(props){
+    const warningMessage = props.warningMessage
+    return(
+        <Row>
+            <Col>
+                <div>
+                    {warningMessage}
+                </div>
+            </Col>
+        </Row>
     )
 }
