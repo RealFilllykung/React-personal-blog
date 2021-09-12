@@ -26,6 +26,18 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/getContentCard', (req, res) => {
+  //Read all card data from Firebase
+  const blogDB = store.collection('blog')
+  var cardIdArray = []
+    blogDB.get().then(item => {
+        item.forEach(doc => {
+          cardIdArray.push(doc.id)
+        })
+        res.status(200).send(cardIdArray)
+    })
+})
+
 //======================= POST =======================
 app.post('/createpost', (req,res) =>{
     const blogDB = store.collection('blog')
