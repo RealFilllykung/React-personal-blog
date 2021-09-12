@@ -46,8 +46,6 @@ app.post('/verifyToken', (req,res) => {
       res.status(200).send({isAdmin: true})
       return
     })
-    
-  //res.status(200).send({isAdmin: false})
 })
 
 app.listen(port, () => {
