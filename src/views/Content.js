@@ -9,8 +9,6 @@ function Content(props){
 
     const docId = props.docId
 
-    //Query the content from Firebase database
-
     useEffect(()=>{
         //Ask the data of this post from server
         getContent(docId)
@@ -24,7 +22,6 @@ function Content(props){
                 setImageSrc(imageSrc)
             })
 
-        //Display all of the content
     },[docId])
 
     return (
