@@ -9,7 +9,7 @@ function ContentCard(props){
     const [titleText, setTitleText] = useState('')
     const [contentText, setContentText] = useState('')
 
-    const setSelectedTitle = props.setTitle
+    const setDocId = props.setDocId
 
     useEffect(() => {
         //Get the information of this card from Firebase database
@@ -22,10 +22,11 @@ function ContentCard(props){
             setImageSrc(imageSrc)
             setContentText(content)
         })
-    },[])
+    },[props.cardId])
 
     function handleLinkClick(){
-        setSelectedTitle(titleText)
+
+        setDocId(props.cardId)
     }
 
     return(

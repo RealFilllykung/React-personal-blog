@@ -5,7 +5,7 @@ import getContentCard from "../functions/getContentCard"
 import { useLayoutEffect, useState } from "react"
 
 function Home(props){
-    const setSelectedTitle = props.setTitle
+    const setDocId = props.setDocId
     const [cardIdArray, setCardIdArray] = useState([])
 
     function setCardArray(){
@@ -28,7 +28,7 @@ function Home(props){
                 <Row className="justify-content-md-center mt-1">
                     <Col md={8}>
                         <div>
-                            <ContentCard cardId={item} setTitle={setSelectedTitle}></ContentCard>
+                            <ContentCard cardId={item} setDocId={setDocId}></ContentCard>
                         </div>
                     </Col>
                 </Row>

@@ -1,10 +1,10 @@
 function Content(props){
-    const selectTitle = props.title
+    const docId = props.docId
 
     //Query the content from Firebase database
 
     return (
-        <div>{selectTitle}</div>
+        <div>{docId}</div>
     )    
 }
 

@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import verifyToken from './functions/verifyToken'
 
 function App() {
-  const [selectedTitle,setSelectedTitle] = useState('')
+  const [docId, setDocId] = useState('')
   const [isLogin, setIsLogin] = useState(false)
 
   //Check if the user is login or not
@@ -30,13 +30,13 @@ function App() {
         <div>
           <Switch>
             <Route exact path="/">
-              <Home setTitle={setSelectedTitle}/>
+              <Home setDocId={setDocId}/>
             </Route>
             <Route exact path="/login">
               <Login/>
             </Route>
             <Route exact path="/content">
-              <Content title={selectedTitle}/>
+              <Content docId={docId}/>
             </Route>
             <Route exact path="/createpost">
               <CreatePost/>
