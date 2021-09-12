@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+import getContent from '../functions/getContent'
+
 function ContentCard(props){
     const [imageSrc, setImageSrc] = useState('')
     const [titleText, setTitleText] = useState('')
@@ -10,9 +12,16 @@ function ContentCard(props){
     const setSelectedTitle = props.setTitle
 
     useEffect(() => {
-        setImageSrc('https://picsum.photos/300/200')
-        setTitleText('Test Title')
-        setContentText('Content Text')
+        //Get the information of this card from Firebase database
+        getContent(props.cardId)
+        .then(response => {
+            const content = response.content
+            const imageSrc = response.imageSrc
+            const title = response.title
+            setTitleText(title)
+            setImageSrc(imageSrc)
+            setContentText(content)
+        })
     },[])
 
     function handleLinkClick(){

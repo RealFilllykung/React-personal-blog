@@ -60,6 +60,16 @@ app.post('/verifyToken', (req,res) => {
     })
 })
 
+app.post('/getContent', (req, res) => {
+  const blogDB = store.collection('blog')
+  const docId = req.body.id
+  blogDB.doc(docId).get()
+    .then(doc => {
+      const data = doc.data()
+      res.status(200).send(data)
+    })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
