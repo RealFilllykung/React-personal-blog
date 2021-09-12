@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import getContent from "../functions/getContent"
 import { Container, Col, Image, Row } from 'react-bootstrap'
+import ReactMarkdown from "react-markdown"
 
 function Content(props){
     const [imageSrc, setImageSrc] = useState('')
@@ -41,7 +42,9 @@ function Content(props){
             
             <Row className="mt-3">
                 <Col>
-                    {contentText}
+                    <ReactMarkdown>
+                        {contentText}
+                    </ReactMarkdown>
                 </Col>
             </Row>
             

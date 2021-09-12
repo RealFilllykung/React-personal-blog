@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Card, Button, Image } from 'react-bootstrap'
+import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 
 import getContent from '../functions/getContent'
@@ -39,7 +40,9 @@ function ContentCard(props){
                     {titleText}
                 </Card.Title>
                 <Card.Text>
-                    {contentText}
+                    <ReactMarkdown>
+                        {contentText}
+                    </ReactMarkdown>
                 </Card.Text>
             </Card.Body>
             <Card.Body>
