@@ -58,10 +58,15 @@ export function SubmitPost(props){
         //Send all the information to the Firebase database
         axios({
             method: 'post',
-            url: 'http://localhost:4000/createpost'
+            url: 'http://localhost:4000/createPost',
+            data: {
+                content: content,
+                imageSrc: imageSrc,
+                title: title
+            }
         })
             .then(response => {
-
+                
             })
             .catch(error => {
                 

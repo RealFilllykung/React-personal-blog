@@ -39,12 +39,21 @@ app.get('/getContentCard', (req, res) => {
 })
 
 //======================= POST =======================
-app.post('/createpost', (req,res) =>{
+app.post('/createPost', (req,res) =>{
+  //Verify the user that they are the admin or not
+
+  //Get the content from the client
+  const newContent = req.body
+  
+  //If there is no content or title
+  if (newContent.content === '' || newContent.title === '') res.status(200).send({message: 'Please insert the content and title'})
+
+  //Send the content to the database
     const blogDB = store.collection('blog')
-    blogDB.get().then(item => {
-        item.forEach(doc => {console.log(doc.id)})
+    blogDB.add(newContent)
+    .then((response) => {
+      res.status(200).send({message: 'Done adding new content'})
     })
-    res.sendStatus(200)
 })
 
 app.post('/verifyToken', (req,res) => {
