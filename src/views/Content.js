@@ -3,11 +3,13 @@ import { useHistory } from "react-router"
 import getContent from "../functions/getContent"
 import { Container, Col, Image, Row, Button } from 'react-bootstrap'
 import ReactMarkdown from "react-markdown"
+import verifyToken from "../functions/verifyToken"
 
 function Content(props){
     const [imageSrc, setImageSrc] = useState('')
     const [titleText, setTitleText] = useState('')
     const [contentText, setContentText] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const docId = props.docId
     let history = useHistory()
@@ -17,7 +19,19 @@ function Content(props){
         history.push('/editpost')
     }
 
+    function RenderEditButton(){
+        if (isAdmin){
+            return (
+                <Button variant="primary" onClick={() => handleClick()}>Edit post</Button>
+            )
+        }
+        else return(<div></div>)
+    }
+
     useEffect(()=>{
+        //Check if the user is an admin
+        verifyToken(setIsAdmin)
+
         //Ask the data of this post from server
         getContent(docId)
             .then(response => {
@@ -36,7 +50,7 @@ function Content(props){
         <Container>
 
             <Row>
-                <Button variant="primary" onClick={() => handleClick()}>Edit post</Button>
+                <RenderEditButton></RenderEditButton>
             </Row>
 
             <Row>
