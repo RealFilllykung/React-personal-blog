@@ -24,7 +24,6 @@ function Home(props){
 
     function RenderContentCard(){
         return cardIdArray.map(item => {
-            console.log(item)
             return(
                 <Row className="justify-content-md-center mt-1">
                     <Col md={8}>
