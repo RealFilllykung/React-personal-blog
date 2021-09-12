@@ -1,7 +1,8 @@
 const express = require('express')
 var admin = require('./firebaseAdmin.js')
+var uidAdmin = require('../Firebase/uid.json')
 const cors = require('cors')
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const store = admin.firestore()
 
 const app = express()
@@ -16,19 +17,38 @@ const blogDB = store.collection('blog')
 */
 
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+
+//======================= GET =======================
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+//======================= POST =======================
 app.post('/createpost', (req,res) =>{
     const blogDB = store.collection('blog')
     blogDB.get().then(item => {
         item.forEach(doc => {console.log(doc.id)})
     })
     res.sendStatus(200)
+})
+
+app.post('/verifyToken', (req,res) => {
+  const token = req.body.token
+  var isAdmin = false
+
+  //Verify UID of the client
+  admin.auth().verifyIdToken(token)
+    .then(decodedToken => {
+      const uid = decodedToken.uid
+      //if (uid === uidAdmin.uid) 
+      res.status(200).send({isAdmin: true})
+      return
+    })
+    
+  //res.status(200).send({isAdmin: false})
 })
 
 app.listen(port, () => {
