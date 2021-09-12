@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router"
 import getContent from "../functions/getContent"
-import { Container, Col, Image, Row } from 'react-bootstrap'
+import { Container, Col, Image, Row, Button } from 'react-bootstrap'
 import ReactMarkdown from "react-markdown"
 
 function Content(props){
@@ -9,6 +10,12 @@ function Content(props){
     const [contentText, setContentText] = useState('')
 
     const docId = props.docId
+    let history = useHistory()
+
+    function handleClick(){
+        
+        history.push('/editpost')
+    }
 
     useEffect(()=>{
         //Ask the data of this post from server
@@ -27,6 +34,10 @@ function Content(props){
 
     return (
         <Container>
+
+            <Row>
+                <Button variant="primary" onClick={() => handleClick()}>Edit post</Button>
+            </Row>
 
             <Row>
                 <Col>

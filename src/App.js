@@ -13,6 +13,7 @@ import CreatePost from './views/CreatePost';
 
 import { useEffect, useState } from 'react';
 import verifyToken from './functions/verifyToken'
+import EditContent from './views/EditContent';
 
 function App() {
   const [docId, setDocId] = useState('')
@@ -40,6 +41,9 @@ function App() {
             </Route>
             <Route exact path="/createpost">
               <CreatePost/>
+            </Route>
+            <Route exact path="/editpost">
+              <EditContent docId={docId}></EditContent>
             </Route>
           </Switch>
         </div>
