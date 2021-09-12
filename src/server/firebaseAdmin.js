@@ -3,8 +3,7 @@ var serviceAccount = require("../Firebase/react-personal-blog-firebase-adminsdk-
 
 //Initialize phase
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://react-personal-blog-default-rtdb.asia-southeast1.firebasedatabase.app/'
+  credential: admin.credential.cert(serviceAccount)
 });
 
 module.exports = admin
