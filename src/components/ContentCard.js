@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import getContent from '../functions/getContent'
@@ -32,7 +32,7 @@ function ContentCard(props){
     return(
         <Card>
             <Card.Body>
-                <Card.Img variant="top" src={imageSrc}></Card.Img>
+                <Image src={imageSrc} rounded fluid/>
             </Card.Body>
             <Card.Body>
                 <Card.Title>

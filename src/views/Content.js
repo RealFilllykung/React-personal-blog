@@ -35,7 +35,7 @@ function Content(props){
 
             <Row className="mt-3">
                 <Col>
-                <Image src={imageSrc} rounded />
+                <Image src={imageSrc} rounded fluid/>
                 </Col>
             </Row>
             

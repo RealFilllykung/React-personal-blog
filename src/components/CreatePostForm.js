@@ -28,7 +28,7 @@ export function ImageLink(props){
             <Col>
                 <Form.Group>
                     <Form.Label>Thumbnail Image Link</Form.Label>
-                    <Form.Control type="text" placeholder="Enter title" value={getter} onChange={(e) => setter(e.target.value)}></Form.Control>
+                    <Form.Control type="text" placeholder="Enter image link" value={getter} onChange={(e) => setter(e.target.value)}></Form.Control>
                 </Form.Group>
             </Col>
         </Row>
